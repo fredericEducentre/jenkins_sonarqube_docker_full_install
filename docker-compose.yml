@@ -1,0 +1,12 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: on-failure
+    ports:
+      - "8085:8080"
+      - "50000:50000"
+
+  sonarqube:
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
