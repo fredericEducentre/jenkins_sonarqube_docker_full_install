@@ -23,20 +23,30 @@ Configurer SonarQube
 
 Aller sur http://localhost:9000/
 
-Ajouter deux nodes sur Jenkins (agent node & agent php)
+Ajouter deux nodes sur Jenkins (agent_node & agent_php)
 
-Créer des images à partir des dockerfiles :
+```
+http://localhost:8085/manage/computer/
+```
+
+Créer une image d'un agent jenkins disposant de nodeJS à partir du dockerfile :
 
 ```
 cd agent-node
 docker build . -t jenkins-agent-node
-docker run --init --name jenkins-agent-node --network <docker_compose_network> jenkins-agent-node -url http://<jenkins-server-IP>:8085 <secret> <agent name>
+docker run --init --name jenkins_agent_node_container --network devops -v /var/run/docker.sock:/var/run/docker.sock jenkins-agent-node -url http://jenkins_container:8080 <secret> <agent name>
 ```
 
-Créer des images à partir des dockerfiles
+ou utiliser une image existante :
+
+```
+docker run -d --network devops --name jenkins_agent_node_container -v /var/run/docker.sock:/var/run/docker.sock --init fredericeducentre/jenkins_agent_node -url http://jenkins_container:8080 <secret> agent_node
+```
+
+Créer une image d'un agent jenkins disposant de php à partir du dockerfile :
 
 ```
 cd ../agent-php
 docker build . -t jenkins-agent-php
-docker run --init --name jenkins-agent-php --network <docker_compose_network> jenkins-agent-php -url http://<jenkins-server-IP>:8085 <secret> <agent name>
+docker run --init --name jenkins_agent_php_container --network devops jenkins-agent-php -url http://jenkins_container:8080 <secret> agent_php
 ```
