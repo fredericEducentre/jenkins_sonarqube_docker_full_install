@@ -1,10 +1,14 @@
 # jenkins_sonarqube_docker_full_install
 
+Si vous êtes sur linux commencer par :
+```
+sudo sysctl -w vm.max_map_count=262144
+```
 
 Créer les containers jenkins et sonarqube sous le même réseau :
 
 ```
-docker compose up
+docker compose up -d
 ```
 
 Configurer Jenkins
