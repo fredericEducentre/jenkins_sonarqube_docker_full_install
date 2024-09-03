@@ -18,7 +18,7 @@ Ajouter deux nodes sur Jenkins (agent node & agent php)
 Créer des images à partir des dockerfiles :
 
 ```
-cd agent-nodes
+cd agent-node
 docker build . -t jenkins-agent-node
 docker run --init --name jenkins-agent-node --network <docker_compose_network> jenkins-agent-node -url http://<jenkins-server-IP>:8085 <secret> <agent name>
 ```
