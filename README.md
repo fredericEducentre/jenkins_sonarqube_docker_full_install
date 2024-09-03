@@ -41,17 +41,24 @@ docker build . -t jenkins-agent-node
 docker run --init --name jenkins_agent_node_container --network devops -v /var/run/docker.sock:/var/run/docker.sock jenkins-agent-node -url http://jenkins_container:8080 <secret> <agent name>
 ```
 
-ou utiliser une image existante :
+Ou utiliser une image existante (plus rapide) :
 
 ```
 docker run -d --network devops --name jenkins_agent_node_container -v /var/run/docker.sock:/var/run/docker.sock --init fredericeducentre/jenkins_agent_node -url http://jenkins_container:8080 <secret> agent_node
 ```
 
-Mettre en place l'intégration continue (continous integration) et la livraison continu (continous delivery) sur un projet utilisant nodeJS :
+Voici une aide pour mettre en place l'intégration continue (continous integration) et la livraison continu (continous delivery) sur un projet utilisant nodeJS :
 
-http://localhost:8085/view/all/newJob
+Prenez ce projet exemple React disposant d'un Jenkinsfile : https://github.com/fredericEducentre/zodiacJS (pensez à personnaliser l'étape delivery avec votre jeton d'accès personnel (PAT) docker hub)
 
-Projet exemple React : https://github.com/fredericEducentre/zodiacJS
+Créer un projet sur Sonarqube - http://localhost:9000/projects/create?mode=manual
+Créer une pipeline sur Jenkins - http://localhost:8085/view/all/newJob
+Une fois que la CI-CD à réussi, déployez sur un server l'image avec Docker
+Exemple :
+```
+docker run --name zodiac_js_container -p 3000:80 fredericeducentre/zodiac_js
+```
+Allez sur http://localhost:3000
 
 ### Agent php
 
