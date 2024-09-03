@@ -1,6 +1,6 @@
 services:
   jenkins:
-    container_name: jenkins
+    container_name: jenkins_container
     image: jenkins/jenkins:lts
     restart: on-failure
     ports:
@@ -10,7 +10,7 @@ services:
       - devops
     
   sonarqube:
-    container_name: sonarqube
+    container_name: sonarqube_container
     image: sonarqube:latest
     ports:
       - "9000:9000"
