@@ -60,9 +60,10 @@ De façon général pour créer une pipeline de CI-CD répondez d'abord à ces q
 
 Prenez ce projet exemple React disposant d'un Jenkinsfile : https://github.com/fredericEducentre/zodiacJS (pensez à personnaliser l'étape delivery avec votre jeton d'accès personnel (PAT) docker hub)
 
-Créer un projet sur Sonarqube - http://localhost:9000/projects/create?mode=manual
-Créer une pipeline sur Jenkins - http://localhost:8085/view/all/newJob
-Une fois que la CI-CD à réussi, déployez sur un server l'image avec Docker
+1. Créer un projet sur Sonarqube - http://localhost:9000/projects/create?mode=manual
+2. Créer une pipeline sur Jenkins - http://localhost:8085/view/all/newJob
+3. Une fois que la CI-CD à réussi, déployez sur un server l'image avec Docker
+
 Exemple :
 ```
 docker run --name zodiac_js_container -p 3000:80 fredericeducentre/zodiac_js
