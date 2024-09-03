@@ -49,6 +49,15 @@ docker run -d --network devops --name jenkins_agent_node_container -v /var/run/d
 
 Voici une aide pour mettre en place l'intégration continue (continous integration) et la livraison continu (continous delivery) sur un projet utilisant nodeJS :
 
+De façon général pour créer une pipeline de CI-CD répondez d'abord à ces questions :
+- Est-ce que mon code est sur un dépot de code (Github/Gitlab/...) ?
+- Est-ce que mon code a besoin d'être compilé ?
+- Est-ce que mon code a des tests unitaires ?
+- Quels sont les langages (RUBY/JAVA/JS/PHP/...) utilisés dans mon projet ?
+- Est-ce que mon serveur/hébergeur dispose de Docker ?
+- Est-ce que je souhaite containeriser mon code ? Si oui, ai-je un dockerfile ?
+- Est-ce que je souhaite par la suite automatiser le déploiement ?
+
 Prenez ce projet exemple React disposant d'un Jenkinsfile : https://github.com/fredericEducentre/zodiacJS (pensez à personnaliser l'étape delivery avec votre jeton d'accès personnel (PAT) docker hub)
 
 Créer un projet sur Sonarqube - http://localhost:9000/projects/create?mode=manual
