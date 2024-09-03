@@ -7,11 +7,17 @@ Créer les containers jenkins et sonarqube sous le même réseau :
 docker compose up
 ```
 
+Configurer Jenkins
+
 Aller sur http://localhost:8085/
 
-Aller sur http://localhost:9000/
+```
+docker logs jenkins_container
+```
 
-Configurer Jenkins puis Sonarqube
+Configurer SonarQube
+
+Aller sur http://localhost:9000/
 
 Ajouter deux nodes sur Jenkins (agent node & agent php)
 
